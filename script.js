@@ -27,6 +27,11 @@ const restaurant = {
     ${ing1}, ${ing2} and ${ing3}`);
   },
 
+  orderPizza: function(mainIngridient, ...otherIngridients) {
+    console.log(mainIngridient);
+    console.log(otherIngridients);
+  },
+
   openingHours: {
     thu: {
       open: 12,
@@ -42,6 +47,41 @@ const restaurant = {
     },
   },
 };
+
+// REST OPERATOR AND PARAMETERS 
+// rest for destructuring
+
+// REST, because it is left side of = assignment
+const [a, , b, ...others] = [1, 2, 3, 4, 5]
+console.log(a, b, others);
+
+const {sat, ...weekdays} = restaurant.openingHours
+
+console.log(weekdays);
+
+// rest for functions
+
+const add = function(...numbers) {
+  console.log(numbers);
+  let  sum = 0
+  for(let i = 0; i<numbers.length; i++) {
+    sum += numbers[i]
+  }
+  console.log(sum)
+  return sum
+}
+
+add(2, 4, 5, 6, 6)
+
+const x = [3, 4, 5]
+
+add(...x)
+
+restaurant.orderPizza('banana', 'miu', 'jeje', 'bobo')
+
+const all = ['banana', 'miu', 'jeje', 'bobo'];
+
+restaurant.orderPizza(...all)
 
 // SPREAD OPERATOR - taking all elements out of array
 // does NOT manipulate original array
