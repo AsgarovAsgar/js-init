@@ -45,43 +45,154 @@ const restaurant = {
       open: 0, // Open 24 hours
       close: 24,
     },
+  }
+};
+
+const rest1 = {
+  name: 'Capri',
+  // numGuests: 20
+  numGuests: 0
+}
+
+const rest2 = {
+  name: 'La Piazza',
+  owner: 'Jiovanni Dos Santos'
+};
+
+const game = {
+  team1: 'Bayern Munich',
+  team2: 'Borrussia Dortmund',
+  players: [
+    [
+      'Neuer',
+      'Pavard',
+      'Martinez',
+      'Alaba',
+      'Davies',
+      'Kimmich',
+      'Goretzka',
+      'Coman',
+      'Muller',
+      'Gnarby',
+      'Lewandowski',
+    ],
+    [
+      'Burki',
+      'Schulz',
+      'Hummels',
+      'Akanji',
+      'Hakimi',
+      'Weigl',
+      'Witsel',
+      'Hazard',
+      'Brandt',
+      'Sancho',
+      'Gotze',
+    ],
+  ],
+  score: '4:0',
+  scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+  date: 'Nov 9th, 2037',
+  odds: {
+    team1: 1.33,
+    x: 3.25,
+    team2: 6.5,
   },
 };
+
+// OR assignment operator
+// rest1.numGuests = rest1.numGuests || 10;
+// rest2.numGuests = rest2.numGuests || 10;
+
+// rest1.numGuests ||= 10;
+// rest2.numGuests ||= 10;
+
+// ?? nullish coalescent assignment operator
+// rest1.numGuests ??= 10;
+// rest2.numGuests ??= 10;
+
+// AND assignment operator
+// rest1.owner = rest1.owner && 'anonymous'; //--> it will create owner: undefined
+// rest2.owner = rest2.owner && 'anonymous';
+
+// rest1.owner &&= 'anonymous' //--> it will NOT create anything to owner!!!
+// rest2.owner &&= 'anonymous';
+
+// console.log(rest1);
+// console.log(rest2);
+
+// Short Circuiting (&& and ||)
+
+// OR operator
+// console.log('x' || 'Asgar');
+// console.log('' || 'Asgar');
+// console.log(true || 'Asgar');
+// console.log(undefined || null);
+// console.log(false || 0);
+
+// console.log('' || null || undefined || 'Asgar' || true || 0);
+
+// restaurant.numGuests = 0
+// const guests1 = restaurant.numGuests ? restaurant.numGuests : 10
+// console.log(guests1);
+
+// const guests2 = restaurant.numGuests || 10
+// console.log(guests2);
+
+// Nullish Coalescing (??) operator --> solves 0 (falsy) problem, because 0 is NOT nullish value
+
+// NULLISH values: null and undefined, NOT 0 and ' '
+// const correctGuest = restaurant.numGuests ?? 10;
+// console.log(correctGuest);
+
+// AND Operator
+// console.log('----- AND -----');
+// console.log(0 && 'asgar');
+// console.log(7 && 'asgar');
+// console.log('asgar' && 33 && undefined && 'hid');
+
+// // practical example
+// if (restaurant.orderPizza) {
+//   restaurant.orderPizza('pasta', 'mush', 'coke')
+// }
+
+// restaurant.orderPizza && restaurant.orderPizza('hehe', 'hoho', 'hihi')
+
 
 // REST OPERATOR AND PARAMETERS 
 // rest for destructuring
 
 // REST, because it is left side of = assignment
-const [a, , b, ...others] = [1, 2, 3, 4, 5]
-console.log(a, b, others);
+// const [a, , b, ...others] = [1, 2, 3, 4, 5]
+// console.log(a, b, others);
 
-const {sat, ...weekdays} = restaurant.openingHours
+// const {sat, ...weekdays} = restaurant.openingHours
 
-console.log(weekdays);
+// console.log(weekdays);
 
-// rest for functions
+// // rest for functions
 
-const add = function(...numbers) {
-  console.log(numbers);
-  let  sum = 0
-  for(let i = 0; i<numbers.length; i++) {
-    sum += numbers[i]
-  }
-  console.log(sum)
-  return sum
-}
+// const add = function(...numbers) {
+//   console.log(numbers);
+//   let  sum = 0
+//   for(let i = 0; i<numbers.length; i++) {
+//     sum += numbers[i]
+//   }
+//   console.log(sum)
+//   return sum
+// }
 
-add(2, 4, 5, 6, 6)
+// add(2, 4, 5, 6, 6)
 
-const x = [3, 4, 5]
+// const x = [3, 4, 5]
 
-add(...x)
+// add(...x)
 
-restaurant.orderPizza('banana', 'miu', 'jeje', 'bobo')
+// restaurant.orderPizza('banana', 'miu', 'jeje', 'bobo')
 
-const all = ['banana', 'miu', 'jeje', 'bobo'];
+// const all = ['banana', 'miu', 'jeje', 'bobo'];
 
-restaurant.orderPizza(...all)
+// restaurant.orderPizza(...all)
 
 // SPREAD OPERATOR - taking all elements out of array
 // does NOT manipulate original array
