@@ -48,16 +48,16 @@ const restaurant = {
   }
 };
 
-const rest1 = {
-  name: 'Capri',
-  // numGuests: 20
-  numGuests: 0
-}
+// const rest1 = {
+//   name: 'Capri',
+//   // numGuests: 20
+//   numGuests: 0
+// }
 
-const rest2 = {
-  name: 'La Piazza',
-  owner: 'Jiovanni Dos Santos'
-};
+// const rest2 = {
+//   name: 'La Piazza',
+//   owner: 'Jiovanni Dos Santos'
+// };
 
 const game = {
   team1: 'Bayern Munich',
@@ -100,6 +100,34 @@ const game = {
   },
 };
 
+const [players1, players2] = game.players
+
+console.log(players1);
+console.log(players2);
+
+const [gk, ...fieldPlayers] = players1;
+
+const allPlayers = [...players1, ...players2];
+
+const players1Final = [...players1, 'Thiago', 'Coutinho', 'Perisic']
+
+// const team1 = game.odds.team1
+// const draw = game.odds.x;
+// const team2 = game.odds.team2;
+
+const {odds: { team1, x: draw, team2 }} = game
+
+
+const printGoals = function(...players) {
+  console.log(`${players.length} goals were scored`);
+}
+printGoals('Lewandowski', 'Gnarby');
+printGoals(...game.scored);
+
+team1 < team2 && console.log('Team 1 is likely to win');
+team1 > team2 && console.log('Team 2 is likely to win');
+
+// console.log(gk, fieldPlayers);
 // OR assignment operator
 // rest1.numGuests = rest1.numGuests || 10;
 // rest2.numGuests = rest2.numGuests || 10;
@@ -132,6 +160,21 @@ const game = {
 
 // console.log('' || null || undefined || 'Asgar' || true || 0);
 
+// let a = 2 + 2;
+// switch (a) {
+//   case 3:
+//     alert('Too small');
+//     break;
+//   case 4:
+//     alert('Exactly!');
+//     break;
+//   case 5:
+//     alert('Too large');
+//     break;
+//   default:
+//     alert("I don't know such values");
+// }
+
 // restaurant.numGuests = 0
 // const guests1 = restaurant.numGuests ? restaurant.numGuests : 10
 // console.log(guests1);
@@ -146,10 +189,10 @@ const game = {
 // console.log(correctGuest);
 
 // AND Operator
-// console.log('----- AND -----');
-// console.log(0 && 'asgar');
-// console.log(7 && 'asgar');
-// console.log('asgar' && 33 && undefined && 'hid');
+// log('----- AND -----');
+// log(0 && 'maestro');
+// log(7 && 'maestro');
+// log('maestro' && 33 && undefined && 'school');
 
 // // practical example
 // if (restaurant.orderPizza) {
@@ -288,3 +331,80 @@ const game = {
 // const nested = [2, 4, [5, 6]]
 // const [i, , [j, k]] = nested
 // console.log(i, j, k);
+
+// let arr = [0, 1]
+// let first = 0
+// let second = 1
+// let next
+
+// const find = function(num) {
+//   let final = num - 2
+//   for (let i = 0; i < final; i++) {
+//     next = second + first;
+//     first = second;
+//     second = next;
+//     arr = [...arr, next]
+//     // console.log(next);
+//   }
+//   console.log(arr);
+//   return next
+// }
+
+// const hehe = find(11)
+// console.log("cavab: ", hehe);
+
+// const func = function(num) {
+//   let res = 1
+//   for(let i = 1; i <= num; i++) {
+//     res = res * i
+//   }
+//   console.log(res);
+// }
+// func(3)
+
+// const poly = function(inp) {
+//   const str = String(inp)
+//   let reversedStr = str.split('').reverse().join('')
+//   if(str === reversedStr) {
+//     console.log('Cavab: ', reversedStr);
+//   } else {
+//     console.log('Nooo')
+//   }
+// }
+
+// const poly = function (inp) {
+//   const check = inp
+//   let str = ''
+//   while (inp > 1) {
+//     let real = Math.trunc(inp % 10);
+//     str += real;
+//     inp /= 10
+//   }
+//   str == check ? console.log('Cavab: ', str) : console.log('Nooo');
+// };
+
+// poly(123321)
+
+// let hour = 9
+
+// if(hour < 10 || hour > 18) {
+//   console.log('The office is closed!');
+// } else {
+//   console.log('The office is OPEN!');
+// }
+
+// // our user will fly abroad
+// let hasTicket = true
+// let cameInTime = false
+
+// if(hasTicket && cameInTime) {
+//   console.log('User can fly! 😍');
+// } else {
+//   console.log('User cannot fly! 🙁');
+// }
+
+// console.log(!true); //false
+// console.log(!0); //false
+
+// console.log(!5 || 1); //true
+// console.log(!(5 || 1)); //false
