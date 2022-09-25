@@ -20,6 +20,16 @@ const openingHours = {
     close: 24,
   },
 };
+
+// for (const day of Object.keys(openingHours)) {
+//   console.log(day);
+//   // console.log(openingHours.day)
+// }
+
+// for (const [day, {open, close}] of Object.entries(openingHours)) {
+//   // const [day, hours] = x
+//   console.log(`On ${day}, we are open from ${open} to ${close}`);
+// }
 // Data needed for first part of the section
 const restaurant = {
   name: 'Classico Italiano',
@@ -62,18 +72,18 @@ const restaurant = {
 // console.log(restaurant.order?.(0, 1) ?? 'Method does not exist');
 // console.log(restaurant.orderSmth?.(0, 1) ?? 'Method does not exist');
 
-const users = [
-  { name: 'Asgar', age: 23 },
-  {age: 23 },
-];
+// const users = [
+//   { name: 'Asgar', age: 23 },
+//   {age: 23 },
+// ];
 
-console.log(users[0]?.name ?? "Array is empty");
+// console.log(users[0]?.name ?? "Array is empty");
 
-if (users.length > 0) {
-  console.log(users[0]?.name);
-} else {
-  console.log('Array is empty');
-}
+// if (users.length > 0) {
+//   console.log(users[0]?.name);
+// } else {
+//   console.log('Array is empty');
+// }
 
 // const menu = [...restaurant.starterMenu, ...restaurant.mainMenu]
 
@@ -130,6 +140,38 @@ const game = {
     team2: 6.5,
   },
 };
+
+// for (const index in game.scored) {
+//   const scorer = game.scored[index]
+//   console.log(`Goal ${+index + 1}: ${scorer}`);
+// }
+
+// let res = 0
+// for (const odd of Object.values(game.odds)) {
+//   console.log(odd);
+//   res += odd
+// }
+// console.log(res / Object.values(game.odds).length);
+
+// for (const [team, odd] of Object.entries(game.odds)) {
+//   const gameTeam = team === 'x' ? 'draw' : `victory ${game[team]}`
+//   console.log(`Odd of ${gameTeam}: ${odd}`);
+// }
+
+
+// 🤍🤍🤍🤍🤍🤍🤍🤍🤍
+// 🤍🤍🤍🤍🤍🤍🤍🤍🤍
+// 🤍🤍🤍🤍🤍🤍🤍🤍🤍
+// 🤍🤍🤍🤍🤍🤍🤍🤍🤍
+// const scorers = {}
+// for (const player of game.scored) {
+//   scorers[player] ? scorers[player]++ : (scorers[player] = 1) 
+//   console.log(scorers);
+// }
+
+// for (const scorer of game.scored) {
+//   console.log(scorer);
+// }
 
 // const [players1, players2] = game.players
 
