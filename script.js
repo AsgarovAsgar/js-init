@@ -60,7 +60,87 @@ const restaurant = {
   openingHours
 };
 
-// console.log(restaurant);
+const airline = 'TAP Air Portugal';
+const plane = 'A320';
+
+// console.log(plane[0]);
+// console.log(plane[1]);
+// console.log(plane[2]);
+
+// console.log(airline.indexOf('Air'));
+// console.log(airline.indexOf('P'));
+// console.log(airline.lastIndexOf('P'));
+// console.log(airline.slice(4, 7));
+// console.log(airline.slice(0, airline.indexOf(' ')));
+// console.log(airline.slice(airline.lastIndexOf(' ') + 1));
+
+// const chm = function(seat) {
+//   let s = seat.slice(-1);
+//   if(s === 'B' || s === 'E') {
+//     console.log('Middle');
+//   } else {
+//     console.log('Hooray');
+//   }
+// }
+
+// chm('11B')
+// chm('23C');
+// chm('3E');
+
+// console.log(airline.toLowerCase());
+// console.log(airline.toUpperCase());
+
+// const pass = 'aSGaR'
+// const passLower = pass.toLowerCase()
+// const final = passLower[0].toUpperCase() + passLower.slice(1)
+// console.log(final);
+
+// const email = 'hello@asgar.com'
+// const loginEmail = '  Hello@Asgar.com  \n'
+
+// const lowerEmail = loginEmail.toLowerCase()
+// const trimmedEmail = lowerEmail.trim()
+// console.log(trimmedEmail);
+
+// const priceGB = '233,19@'
+// console.log(priceGB);
+// const priceUS = priceGB.replace('@', '$').replace(',', '.')
+// console.log(priceUS);
+
+// const announcement = '12All passengers come to boarding door 23. Boarding door 23!'
+// const newAnn = announcement.replaceAll('door', 'gate')
+// console.log(newAnn);
+
+// const checkBaggage = function(items) {
+//   const baggage = items.toLowerCase()
+//   if (baggage.includes('gun') || baggage.includes('knife')) {
+//     console.log('You are not allowed');
+//   } else {
+//     console.log('Welcome');
+//   }
+// }
+
+// checkBaggage('I have a laptop, some Food and a Knife')
+// checkBaggage('I have a gun and toys')
+// checkBaggage('Socks and camera')
+
+// console.log(announcement.includes(23));
+// console.log(announcement.startsWith(12));
+
+const capitalizeName = function(name) {
+  const names = name.split(' ')
+  console.log(names);
+  const finArr = []
+  for (const n of names) {
+    // const final = n[0].toUpperCase() + n.slice(1)
+    const final = n.replace(n[0], n[0].toUpperCase())
+    finArr.push(final)
+  }
+  console.log(finArr.join(' '));
+}
+
+capitalizeName('lisa ann dani daniels')
+capitalizeName('asgar elchin ruhin cats');
 
 // const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
 
@@ -172,12 +252,54 @@ const gameEvents = new Map([
   [92, '🔶 Yellow card'],
 ]);
 
+// let a = 2 + 2;
+// switch (a) {
+//   case 3:
+//     alert('Too small');
+//   case 4:
+//     alert('Exactly!');
+//   case 5:
+//     alert('Too big');
+//   default:
+//     alert("I don't know such values");
+// }
+
+// let a = '1';
+// let b = 0;
+
+// switch (+a) {
+//   case b + 1:
+//     alert('this runs, because +a is 1, exactly equals b+1');
+//     break;
+
+//   default:
+//     alert("this doesn't run");
+// }
+
+// let a = 2 + 2;
+
+// switch (a) {
+//   case 4:
+//     alert('Right!');
+//     break;
+
+//   case 3: // (*) grouped two cases
+//   case 5:
+//     alert('Wrong!');
+//     alert("Why don't you take a math class?");
+//     break;
+
+//   default:
+//     alert('The result is strange. Really.');
+// }
+
+
 // console.log(gameEvents.values());
 
 // const events = [...new Set(gameEvents.values())]
 // console.log(events);
 
-gameEvents.delete(64)
+// gameEvents.delete(64)
 
 // console.log(`An event happened, on average, every ${90 / gameEvents.size} minutes`);
 
@@ -185,11 +307,11 @@ gameEvents.delete(64)
 // const lastTime = time[time.length - 1]
 // console.log(`An event happened, on average, every ${lastTime / gameEvents.size} minutes`);
 
-for (const [key, value] of gameEvents) {
+// for (const [key, value] of gameEvents) {
 
-  const message = key <=45 ? 'FIRST' : 'SECOND'
-  console.log(`[ ${message} HALF ] ${key}: ${value}`);
-}
+//   const message = key <= 45 ? 'FIRST' : 'SECOND'
+//   console.log(`[ ${message} HALF ] ${key}: ${value}`);
+// }
 
 
 // 🤍🤍🤍🤍🤍🤍🤍🤍🤍
