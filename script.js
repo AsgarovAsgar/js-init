@@ -4,6 +4,18 @@
 const flights =
   '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
 
+const flightData = flights.split('+')
+console.log(flightData);
+
+for (const flight of flightData) {
+  const [con, from, to, time] = flight.split(';')
+  const newCon = con.replaceAll('_', ' ')
+  const newFrom = from.slice(0, 3).toUpperCase()
+  const newTo = to.slice(0, 3).toUpperCase();
+  const newTime = time.replace(':', 'h')
+  const str = `${newCon.includes('Delayed') ? '🔴' : ''} ${newCon} from ${newFrom} to ${newTo} (${newTime})`.padStart(45);
+  console.log(str);
+}
 
 const weekDays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun']
 const openingHours = {
@@ -60,8 +72,28 @@ const restaurant = {
   openingHours
 };
 
-const airline = 'TAP Air Portugal';
-const plane = 'A320';
+
+// document.addEventListener('click', function() {
+//   const text = document.querySelector('.text').value
+//   const words = text.replace(/\n/g, '+').replace(/\s/g, '').toLowerCase().split('+')
+//   for (let [i, word] of words.entries()) {
+//     let ones = word.split('_')
+//     const [first, ...others] = ones
+//     let newOthers = []
+
+//     for (let w of others) {
+//       let newW = w.charAt(0).toUpperCase() + w.slice(1)
+//       newOthers.push(newW)
+//     }
+
+//     let newOnes = [first, ...newOthers];
+//     let final = newOnes.join('');
+//     console.log(`${final.padEnd(20)}${'✅ '.repeat(i+1)}`);
+//   }
+// })
+
+// const airline = 'TAP Air Portugal';
+// const plane = 'A320';
 
 // console.log(plane[0]);
 // console.log(plane[1]);
@@ -127,20 +159,20 @@ const plane = 'A320';
 // console.log(announcement.includes(23));
 // console.log(announcement.startsWith(12));
 
-const capitalizeName = function(name) {
-  const names = name.split(' ')
-  console.log(names);
-  const finArr = []
-  for (const n of names) {
-    // const final = n[0].toUpperCase() + n.slice(1)
-    const final = n.replace(n[0], n[0].toUpperCase())
-    finArr.push(final)
-  }
-  console.log(finArr.join(' '));
-}
+// const capitalizeName = function(name) {
+//   const names = name.split(' ')
+//   console.log(names);
+//   const finArr = []
+//   for (const n of names) {
+//     // const final = n[0].toUpperCase() + n.slice(1)
+//     const final = n.replace(n[0], n[0].toUpperCase())
+//     finArr.push(final)
+//   }
+//   console.log(finArr.join(' '));
+// }
 
-capitalizeName('lisa ann dani daniels')
-capitalizeName('asgar elchin ruhin cats');
+// capitalizeName('lisa ann dani daniels')
+// capitalizeName('asgar elchin ruhin cats');
 
 // const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
 
