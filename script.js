@@ -5,17 +5,17 @@ const flights =
   '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
 
 const flightData = flights.split('+')
-console.log(flightData);
+// console.log(flightData);
 
-for (const flight of flightData) {
-  const [con, from, to, time] = flight.split(';')
-  const newCon = con.replaceAll('_', ' ')
-  const newFrom = from.slice(0, 3).toUpperCase()
-  const newTo = to.slice(0, 3).toUpperCase();
-  const newTime = time.replace(':', 'h')
-  const str = `${newCon.includes('Delayed') ? '🔴' : ''} ${newCon} from ${newFrom} to ${newTo} (${newTime})`.padStart(45);
-  console.log(str);
-}
+// for (const flight of flightData) {
+//   const [con, from, to, time] = flight.split(';')
+//   const newCon = con.replaceAll('_', ' ')
+//   const newFrom = from.slice(0, 3).toUpperCase()
+//   const newTo = to.slice(0, 3).toUpperCase();
+//   const newTime = time.replace(':', 'h')
+//   const str = `${newCon.includes('Delayed') ? '🔴' : ''} ${newCon} from ${newFrom} to ${newTo} (${newTime})`.padStart(45);
+//   console.log(str);
+// }
 
 const weekDays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun']
 const openingHours = {
@@ -668,3 +668,73 @@ const gameEvents = new Map([
 
 // console.log(!5 || 1); //true
 // console.log(!(5 || 1)); //false
+
+// const oneWord = function(str) {
+//   return str.replace(/ /g, '').toLowerCase()
+// }
+
+// const upperFirstWord = function(str) {
+//   const [first, ...remained] = str.split(' ')
+//   return [first.toUpperCase(), ...remained].join(' ')
+// }
+
+// // high order function
+
+// const transformer = function(str, fn) {
+//   console.log(`Transformed string: ${fn(str)}`);
+//   console.log(`Transformed by: ${fn.name}`);
+// }
+
+// transformer('JavaScript is the best', upperFirstWord);
+// transformer('JavaScript is the best', oneWord);
+
+const greet = function(greeting) {
+  return function (name) {
+    console.log(`${greeting}, ${name}`);
+  }
+}
+
+// const greetSalam = greet('Salam')
+// greetSalam('Asgar')
+// greetSalam('Jonas');
+
+const greetArw = (greeting) => (name) => console.log(`${greeting}, ${name}`);
+
+// greetArw('heey')('Mestaaan')
+
+const luthansa = {
+  airline: 'Luthansa',
+  iataCode: 'LH',
+  bookings: [],
+  book: function(flightNum, name) {
+    console.log(`${name} booked a seat on ${this.airline} flight ${this.iataCode}${flightNum}`);
+    this.bookings.push({
+      flight: `${this.iataCode}${flightNum}`,
+      name
+    })
+  }
+}
+
+luthansa.book(243, 'Asgar')
+luthansa.book(112, 'Mestan');
+console.log(luthansa);
+
+const eurowings = {
+  airline: 'Eurowings',
+  iataCode: 'EW',
+  bookings: []
+}
+
+const book = luthansa.book
+
+book.call(eurowings, 111, 'Leo Messi')
+
+const swiss = {
+  airline: 'Swiss',
+  iataCode: 'SS',
+  bookings: []
+}
+
+book.call(swiss, 77, "Xavi Sim")
+
+// CALL and APPLY methos
