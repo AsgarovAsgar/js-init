@@ -715,9 +715,9 @@ const luthansa = {
   }
 }
 
-luthansa.book(243, 'Asgar')
-luthansa.book(112, 'Mestan');
-console.log(luthansa);
+// luthansa.book(243, 'Asgar')
+// luthansa.book(112, 'Mestan');
+// console.log(luthansa);
 
 const eurowings = {
   airline: 'Eurowings',
@@ -727,14 +727,219 @@ const eurowings = {
 
 const book = luthansa.book
 
-book.call(eurowings, 111, 'Leo Messi')
+// book.call(eurowings, 111, 'Leo Messi')
 
-const swiss = {
-  airline: 'Swiss',
-  iataCode: 'SS',
-  bookings: []
+// const swiss = {
+//   airline: 'Swiss',
+//   iataCode: 'SS',
+//   bookings: []
+// }
+
+// book.call(swiss, 77, "Xavi Sim")
+// const arr = []
+// const str = 'iney'
+
+// console.log(swiss);
+// console.log(arr);
+// console.log(str);
+// str.concat('yoyuq')
+// arr.push('ehur')
+
+// const bookSW = book.bind(swiss)
+
+// bookSW(100, 'Xalid')
+
+// BIND() with EVENT LISTENERS
+// luthansa.planes = 300
+// luthansa.buyPlane = function() {
+//   console.log(this)
+
+//   this.planes++
+//   console.log(this.planes);
+// }
+
+// document.querySelector('.buy').addEventListener('click', luthansa.buyPlane.bind(luthansa));
+
+// const addTax = (rate, value) => {
+//   return value + value * rate
+// }
+// console.log(addTax(0.2, 100));
+
+// const addDDD = addTax.bind(null, 0.1)
+
+// console.log(addDDD(200))
+// console.log(addDDD(600));
+
+// const addBBB = function(rate) {
+//   return function(value) {
+//     return value + value * rate;
+//   }
+// }
+
+// const addRate = addBBB(0.3)
+// const addValue = addRate(500)
+// console.log('weg', addValue);
+
+
+// book.bind(swiss)(33, 'isik')
+
+// CALL and APPLY methods
+
+// while ( condition ) {
+//   //the loop body 
+// }
+
+// let i = 0;
+// while (i < 5) {
+//   // shows 0, 1, ..., 4  console.log(i);
+//   i++;
+// }
+
+// let i = 3;
+// while (i) {
+//   // when i becomes 0, the condition becomes falsy, and the loop stops
+//   console.log(i);
+//   i--;
+// }
+
+// let i = 3;
+// while (i) alert(i--);
+
+// do {
+//   // loop body
+// } while (condition);
+
+
+// let i = 0;
+// do {
+//   alert(i);
+//   i++;
+// } while (i < 3);
+
+// for (begin; condition; step) {
+//   // ... loop body ...
+// }
+
+// for (let i = 0; i < 3; i++) {
+//   alert(i); // 0, 1, 2
+// }
+
+
+// // run begin  let i = 0
+// // if condition → run body and run step  if (i < 3) { alert(i); i++ }
+// if (i <  3)  { alert(i); i++ }
+// // if condition → run body and run step
+// if (i <  3)  { alert(i); i++ }
+// // if condition → run body and run step  if (i < 3) { alert(i); i++ }
+// if (i <  3)  { alert(i); i++ }
+// // ...finish, because now i == 3
+
+// for (let i = 0; i < 3; i++) {
+//   console.log(i); // 0, 1, 2
+// }
+// console.log(i); // error, no such variable
+
+// let i = 0;
+// for (i = 0; i < 3; i++) {
+//   // use an existing variable  
+//   console.log(i); // 0, 1, 2
+// }
+// console.log(i); // 3, visible, because declared outside of the loop
+
+// let i = 0; // we have i already declared and assigned
+// for (; i < 3; i++) {
+//   // no need for "begin"
+//   console.log(i); // 0, 1, 2
+// }
+
+// let i = 0;
+// for (; i < 3; ) {
+//   console.log(i++);
+// }
+
+// for ( ; ; ) {
+//   // repeats without limits
+//   console.log('I am in the infinity loop');
+// }
+
+// let sum = 0;
+// while (true) {
+//   let num = Number(prompt('Enter a number', ''));
+//   if (!num) break;
+//   sum += num;
+// }
+// console.log('Sum: ' + sum);
+
+// for (let i = 0; i < 10; i++) {
+//   // if true, skip the remaining part of the body
+//   if (i % 2 == 0) continue;
+
+//   console.log(i); // 1, 3, 5, 7, 9
+// }
+
+
+//  let str = prompt('Enter the data')
+//  let str = `"description": "Təsvir",
+//         "price": "Qiymət",
+//         "add": "Əlavə et",
+//         "your_include": "Ilk qiymət",
+//         "final_price": "Son qiymət",
+//         "delete": "Sil",
+//         "send_offer": "Təklif göndər",
+//         "there_is": "Hazırda əlavə edilmiş təklif yoxdur",
+//         "please_wait": "Zəhmət olmasa gözləyin, Pro təklif göndərəcək",
+//         "add_new": "Yeni təklif əlavə edin"`;
+
+// const convertStr = function(str) {
+//   let output = ''
+//   const sentences = str.replaceAll('\n', '').split(',')
+//   for (const sentence of sentences) {
+//     const modSentence = sentence.trim()
+//     const [key, word] = modSentence.split(':')
+//     const trimmedWord = word.trim();
+//     output = output + trimmedWord + '+'
+//     console.log(output);
+//   }
+//   console.log(output);
+// }
+
+// convertStr(str)
+
+
+const poll = {
+  question: 'What is your favourite programming language?',
+  options: ['0: JavaScript', '1: Python', '2: Rust', '3: C++'],
+  // This generates [0, 0, 0, 0]. More in the next section 😃
+  answers: new Array(4).fill(0),
+  registerNewAnswer: function() {
+    const newAnswer = Number(
+      prompt(`What is your favourite programming language?
+        0: JavaScript
+        1: Python
+        2: Rust
+        3: C++
+        (Write option number)`)
+    );
+
+    typeof newAnswer === 'number' && newAnswer < this.options.length && this.answers[newAnswer]++
+    this.displayResults('string')
+  },
+  displayResults: function(type) {
+    if(type === 'string') {
+      console.log(`Poll results are: ${this.answers.join(' ')}`);
+    } else {
+      console.log(this.answers);
+    }
+  }
 }
+// 3. Create a method 'displayResults' which displays the poll results. The method takes a string as an input (called 'type'), which can be either 'string' or 'array'. 
+// If type is 'array', simply display the results array as it is, using console.log(). This should be the default option.
+// If type is 'string', display a string like "Poll results are 13, 2, 4, 1". 
+// 4. Run the 'displayResults' method at the end of each 'registerNewAnswer' method call.
+document.querySelector('.poll').addEventListener('click', poll.registerNewAnswer.bind(poll));
 
-book.call(swiss, 77, "Xavi Sim")
+(function() {
+  console.log('Will run ONCE');
+  let isPravite = 23
+})()
 
-// CALL and APPLY methos
