@@ -906,40 +906,91 @@ const book = luthansa.book
 // convertStr(str)
 
 
-const poll = {
-  question: 'What is your favourite programming language?',
-  options: ['0: JavaScript', '1: Python', '2: Rust', '3: C++'],
-  // This generates [0, 0, 0, 0]. More in the next section 😃
-  answers: new Array(4).fill(0),
-  registerNewAnswer: function() {
-    const newAnswer = Number(
-      prompt(`What is your favourite programming language?
-        0: JavaScript
-        1: Python
-        2: Rust
-        3: C++
-        (Write option number)`)
-    );
+// const poll = {
+//   question: 'What is your favourite programming language?',
+//   options: ['0: JavaScript', '1: Python', '2: Rust', '3: C++'],
+//   // This generates [0, 0, 0, 0]. More in the next section 😃
+//   answers: new Array(4).fill(0),
+//   registerNewAnswer: function() {
+//     const newAnswer = Number(
+//       prompt(`What is your favourite programming language?
+//         0: JavaScript
+//         1: Python
+//         2: Rust
+//         3: C++
+//         (Write option number)`)
+//     );
 
-    typeof newAnswer === 'number' && newAnswer < this.options.length && this.answers[newAnswer]++
-    this.displayResults('string')
-  },
-  displayResults: function(type) {
-    if(type === 'string') {
-      console.log(`Poll results are: ${this.answers.join(' ')}`);
-    } else {
-      console.log(this.answers);
-    }
-  }
-}
+//     typeof newAnswer === 'number' && newAnswer < this.options.length && this.answers[newAnswer]++
+//     this.displayResults('string')
+//   },
+//   displayResults: function(type) {
+//     if(type === 'string') {
+//       console.log(`Poll results are: ${this.answers.join(' ')}`);
+//     } else {
+//       console.log(this.answers);
+//     }
+//   }
+// }
 // 3. Create a method 'displayResults' which displays the poll results. The method takes a string as an input (called 'type'), which can be either 'string' or 'array'. 
 // If type is 'array', simply display the results array as it is, using console.log(). This should be the default option.
 // If type is 'string', display a string like "Poll results are 13, 2, 4, 1". 
 // 4. Run the 'displayResults' method at the end of each 'registerNewAnswer' method call.
-document.querySelector('.poll').addEventListener('click', poll.registerNewAnswer.bind(poll));
+// document.querySelector('.poll').addEventListener('click', poll.registerNewAnswer.bind(poll));
 
-(function() {
-  console.log('Will run ONCE');
-  let isPravite = 23
-})()
+// (function() {
+//   console.log('Will run ONCE');
+//   let isPravite = 23
+// })()
 
+// CLOSURES
+
+// const secureBooking = function() {
+//   let passengerCount = 0
+//   return function() {
+//     passengerCount++
+//     console.log(`${passengerCount} passengers`);
+//   }
+// }
+
+// const booker = secureBooking();
+
+// booker();
+// booker();
+// booker();
+
+// let f;
+
+// const g = function() {
+//   const a = 23
+//   f = function() {
+//     console.log(a*2);
+//   }
+// };
+
+// const h = function() {
+//   const b = 777;
+//   f = function() {
+//     console.log(b*2)
+//   }
+// }
+
+// g()
+// f()
+
+// // re-assigning f function
+// h()
+// f()
+
+const boardPassengers = function(n, wait) {
+  const perGroup = n / 3
+
+  setTimeout(function() {
+    console.log(`We are now boarding all ${n} passengers`);
+    console.log(`There are 3 groups, each with ${perGroup} passengers`)
+  }, wait * 1000)
+
+  console.log(`We will start boarding in ${wait} seconds`);
+}
+
+boardPassengers(12, 5)
