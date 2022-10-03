@@ -1144,3 +1144,21 @@ const inputClosePin = document.querySelector('.form__input--pin');
 //   console.log(map);
 //   console.log(val, key);
 // })
+
+const rawJuliaDogs = [3, 5, 2, 12 , 7 ]
+const kateDogs = [4, 1, 15, 8, 3]
+
+
+const checkDogs = function(dogsJulia, dogsKate) {
+  const correctJuliaDogs = dogsJulia.slice(1, rawJuliaDogs.length - 1);
+  const allDogs = [...correctJuliaDogs, ...dogsKate]; 
+  allDogs.forEach(function(dog, i) {
+    if(dog >= 3) {
+      console.log(`Dog number ${i + 1} is an adult, and is ${dog} years old`);
+    } else {
+      console.log(`Dog number ${i + 1} is an puppy, and is ${dog} years old`);
+    }
+  }) 
+}
+
+checkDogs(rawJuliaDogs, kateDogs);
