@@ -1145,20 +1145,111 @@ const inputClosePin = document.querySelector('.form__input--pin');
 //   console.log(val, key);
 // })
 
-const rawJuliaDogs = [3, 5, 2, 12 , 7 ]
-const kateDogs = [4, 1, 15, 8, 3]
+// const rawJuliaDogs = [3, 5, 2, 12 , 7 ]
+// const kateDogs = [4, 1, 15, 8, 3]
 
 
-const checkDogs = function(dogsJulia, dogsKate) {
-  const correctJuliaDogs = dogsJulia.slice(1, rawJuliaDogs.length - 1);
-  const allDogs = [...correctJuliaDogs, ...dogsKate]; 
-  allDogs.forEach(function(dog, i) {
-    if(dog >= 3) {
-      console.log(`Dog number ${i + 1} is an adult, and is ${dog} years old`);
-    } else {
-      console.log(`Dog number ${i + 1} is an puppy, and is ${dog} years old`);
-    }
-  }) 
+// const checkDogs = function(dogsJulia, dogsKate) {
+//   const correctJuliaDogs = dogsJulia.slice(1, rawJuliaDogs.length - 1);
+//   const allDogs = [...correctJuliaDogs, ...dogsKate]; 
+//   allDogs.forEach(function(dog, i) {
+//     if(dog >= 3) {
+//       console.log(`Dog number ${i + 1} is an adult, and is ${dog} years old`);
+//     } else {
+//       console.log(`Dog number ${i + 1} is an puppy, and is ${dog} years old`);
+//     }
+//   }) 
+// }
+
+// checkDogs(rawJuliaDogs, kateDogs);
+
+// let tempFah = prompt('Enter degree with Fah.');
+// let tempCel = Math.trunc((5 / 9) * (tempFah - 32));
+// console.log(tempFah, tempCel, typeof tempCel);
+// console.log('Here1: ', tempCel < 0);
+// console.log('Here2 ', 0 < tempCel < 100);
+// console.log('Here3: ', tempCel > 100);
+// if (tempCel < 0) {
+//   console.log(`Temperature is ${tempCel} C and water will be ice `);
+// } else if (0 < tempCel < 100) {
+//   console.log(
+//     `Temperature is ${tempCel} C and water will not change its state `
+//   );
+// } else {
+//   console.log(`Temperature is ${tempCel} C and water will be vapor `);
+// }
+
+// let userName = 'John';
+
+// function showMessage() {
+//   const message = 'Hello, ' + userName;
+//   console.log(message);
+// }
+
+// showMessage(); // Hello, John
+
+// function showMessage(from, text) { // arguments: from, text
+//   console.log(from + ': ' + text);
+// }
+
+// showMessage('Akshin', 'Hello!'); // Akshin: Hello!
+// showMessage('Aqalar', "How are you?"); // Aqalar: How are you?
+// showMessage('Ismail', "What's up?"); // Ismail: What's up?
+
+
+// function showMessage(from, text = 'no text given') {
+//   from = '*' + from + '*'; // make "from" look nicer
+//   console.log(from + ': ' + text);
+// }
+
+// showMessage('John'); // *John*: undefined
+
+// function sum(x, y) {
+//   return x + y;
+// }
+
+// let result = sum(1, 2);
+// console.log(result); // 3
+
+// function showMovie(age) {
+//   if (age < 18) return;
+//   console.log('Showing you the movie');
+// }
+
+// showMovie(10)
+
+// function doNothing() { /* empty */ }
+
+// console.log(doNothing() === undefined); // true
+
+// let getRectArea = function (width, height) {
+//   return width * height;
+// }
+
+// console.log(getRectArea(3, 4)); // 12
+
+// notHoisted(); // ReferenceError: Cannot access 'notHoisted' before initialization
+
+// let notHoisted = function () {
+//   console.log('test');
+// };
+
+// function sayHi() {	// (1) create  
+//   console.log('Hello');
+// }
+
+// let func =  sayHi;	// (2) copy
+
+// func(); // Hello
+// sayHi(); // Hello
+
+function greetVisitors(male, female) {
+  console.log(male, female);
+  const message = `Hello, mr. ${male}, and ms. ${female}`
+  return message
 }
 
-checkDogs(rawJuliaDogs, kateDogs);
+const greetingMessage = greetVisitors('John', 'Anna')
+console.log(greetingMessage);
+
+
