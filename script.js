@@ -1243,13 +1243,64 @@ const inputClosePin = document.querySelector('.form__input--pin');
 // func(); // Hello
 // sayHi(); // Hello
 
-function greetVisitors(male, female) {
-  console.log(male, female);
-  const message = `Hello, mr. ${male}, and ms. ${female}`
-  return message
+// function greetVisitors(male, female) {
+//   console.log(male, female);
+//   const message = `Hello, mr. ${male}, and ms. ${female}`
+//   return message
+// }
+
+// const greetingMessage = greetVisitors('John', 'Anna')
+// console.log(greetingMessage);
+
+
+// function ask(question, yes, no) {
+//   if (confirm(question)) yes()
+//   else no();
+// }
+
+// let yesFn = function() {
+//   alert('You agreed.');
+// }
+// let noFn = function() {
+//   alert('You canceled the execution.');
+// }
+
+// ask('Do you agree?', yesFn, noFn);
+
+
+function ask(question, yes, no) {
+  if (confirm(question)) yes()
+  else no();
 }
 
-const greetingMessage = greetVisitors('John', 'Anna')
-console.log(greetingMessage);
+ask(
+  'Do you agree?',
+  function() { alert('You agreed.'); },
+  function() { alert('You canceled the execution.'); }
+);
+
+// let func = (arg1, arg2, ...argN) => expression;
+
+// let func = function (arg1, arg2, ...argN) {
+//   return expression;
+// };
+
+
+function checkAge(age, granted, denied) {
+  if (age < 18) denied();
+  else granted();
+}
+
+let age = prompt('What is your age?', 18);
+
+function grantAccess() {
+  alert('Access granted');
+}
+
+function denyAccess() {
+  alert('Access denied');
+}
+
+checkAge(age, grantAccess, denyAccess);
 
 
