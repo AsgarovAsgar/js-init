@@ -1268,16 +1268,16 @@ const inputClosePin = document.querySelector('.form__input--pin');
 // ask('Do you agree?', yesFn, noFn);
 
 
-function ask(question, yes, no) {
-  if (confirm(question)) yes()
-  else no();
-}
+// function ask(question, yes, no) {
+//   if (confirm(question)) yes()
+//   else no();
+// }
 
-ask(
-  'Do you agree?',
-  function() { alert('You agreed.'); },
-  function() { alert('You canceled the execution.'); }
-);
+// ask(
+//   'Do you agree?',
+//   function() { alert('You agreed.'); },
+//   function() { alert('You canceled the execution.'); }
+// );
 
 // let func = (arg1, arg2, ...argN) => expression;
 
@@ -1286,21 +1286,124 @@ ask(
 // };
 
 
-function checkAge(age, granted, denied) {
-  if (age < 18) denied();
-  else granted();
+// function checkAge(age, granted, denied) {
+//   if (age < 18) denied();
+//   else granted();
+// }
+
+// let age = prompt('What is your age?', 18);
+
+// function grantAccess() {
+//   alert('Access granted');
+// }
+
+const arr = new Array();
+const arr = []; // more common
+
+
+// mix of values
+let arr = ['Apple', { name: 'John' }, true, function () { alert('hello'); }];
+
+const fruits = ["Apple", "Orange", "Pear"];
+
+alert( fruits[0] ); // Apple
+alert( fruits[1] ); // Orange
+alert( fruits[2] ); // Pear
+
+const alphabet = ['B', 'C', 'D']
+
+// push() => add element to the end || returns length
+alphabet.push('E'); //['B', 'C', 'D', 'E']
+
+// unshift() add element to the start || returns length
+alphabet.unshift('A') //['A', 'B', 'C', 'D']
+
+// pop() => remove the last element || returns removed element
+alphabet.pop() //['B', 'C'];
+
+// shift() => remove the first element || return removed element
+alphabet.pop() //['C', 'D'];
+
+// // indexOf() => returns index of the chosen element
+// alphabet.indexOf('B') // 0
+// alphabet.indexOf('C') // 1
+// alphabet.indexOf('D') // 2
+
+// //includes() => return Boolean value
+// alphabet.includes('B') // true
+// alphabet.includes('Z') // false
+
+
+fruits[2] = 'Peach'; // now ['Apple', 'Orange', 'Peach']
+
+fruits[3] = 'Lemon'; // now ['Apple', 'Orange', 'Pear', 'Lemon']
+
+// function denyAccess() {
+//   alert('Access denied');
+// }
+
+// checkAge(age, grantAccess, denyAccess);
+
+const transliterate = function (text) {
+  return text
+    //russin alphabet
+    .replace(/\u042A/g, '')
+    .replace(/\u0451/g, 'yo')
+    .replace(/\u0439/g, 'i')
+    .replace(/\u0446/g, 'ts')
+    .replace(/\u0443/g, 'u')
+    .replace(/\u043A/g, 'k')
+    .replace(/\u0435/g, 'e')
+    .replace(/\u043D/g, 'n')
+    .replace(/\u0433/g, 'g')
+    .replace(/\u0448/g, 'sh')
+    .replace(/\u0449/g, 'sch')
+    .replace(/\u0437/g, 'z')
+    .replace(/\u0445/g, 'h')
+    .replace(/\u044A/g, "'")
+    .replace(/\u0410/g, 'a')
+    .replace(/\u0444/g, 'f')
+    .replace(/\u044B/g, 'i')
+    .replace(/\u0432/g, 'v')
+    .replace(/\u0430/g, 'a')
+    .replace(/\u043F/g, 'p')
+    .replace(/\u0440/g, 'r')
+    .replace(/\u043E/g, 'o')
+    .replace(/\u043B/g, 'l')
+    .replace(/\u0434/g, 'd')
+    .replace(/\u0436/g, 'zh')
+    .replace(/\u044D/g, 'e')
+    .replace(/\u042C/g, "'")
+    .replace(/\u044F/g, 'ya')
+    .replace(/\u0447/g, 'ch')
+    .replace(/\u0441/g, 's')
+    .replace(/\u043C/g, 'm')
+    .replace(/\u0438/g, 'i')
+    .replace(/\u0442/g, 't')
+    .replace(/\u044C/g, "'")
+    .replace(/\u0431/g, 'b')
+    .replace(/\u044E/g, 'yu')
+    //azerbaijani alphabet
+    .replaceAll('ç', 'c')
+    .replaceAll('ə', 'e')
+    .replaceAll('ğ', 'g')
+    .replaceAll('ı', 'i')
+    .replaceAll('ö', 'o')
+    .replaceAll('ş', 's')
+    .replaceAll('ü', 'u');
+};
+
+const createSlug = function(title) {
+  return transliterate(title.toLowerCase())
+    .replace(/[^\w\s]/gi, '')
+    .split(' ')
+    .join('-');
 }
 
-let age = prompt('What is your age?', 18);
+console.log(createSlug(
+  'Salam olsun HaMiya! necəsən бббб 11 wwe ə абвгдеёжзийклмнопрстуфхцчшщъыьэюяАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ Aa, Bʙ, Cc, Çç, Dd, Ee, Ə ə, Ff, Gg, Ƣƣ, Hh, Ii, Ьь, Jj, Kk, Qq, Ll, Mm, Nn, Ꞑꞑ, Oo, Ɵɵ, Pp, Rr, Ss, Şş, Tt, Uu, Vv, Xx, Уy, Zz,'
+))
 
-function grantAccess() {
-  alert('Access granted');
-}
-
-function denyAccess() {
-  alert('Access denied');
-}
-
-checkAge(age, grantAccess, denyAccess);
-
-
+console.log(createSlug('Təmirə hazırlaşırsansa nəzərə almalı olduğun 5 əsas məqam. meslen aaAAA'));
+console.log(createSlug('Five key pointers how to plan repair works'));
+console.log(createSlug('Пять ключевых советов, которые нужно учитывать, если планируете ремонт'));
