@@ -1414,3 +1414,4 @@ console.log(createSlug('Пять ключевых советов, которые
 // yes, konsept
 // 61
 //ms
+// ms-11
