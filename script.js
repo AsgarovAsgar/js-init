@@ -1297,46 +1297,46 @@ const inputClosePin = document.querySelector('.form__input--pin');
 //   alert('Access granted');
 // }
 
-const arr = new Array();
-const arr = []; // more common
+// const arr = new Array();
+// const arr = []; // more common
 
 
-// mix of values
-let arr = ['Apple', { name: 'John' }, true, function () { alert('hello'); }];
+// // mix of values
+// let arr = ['Apple', { name: 'John' }, true, function () { alert('hello'); }];
 
-const fruits = ["Apple", "Orange", "Pear"];
+// const fruits = ["Apple", "Orange", "Pear"];
 
-alert( fruits[0] ); // Apple
-alert( fruits[1] ); // Orange
-alert( fruits[2] ); // Pear
+// alert( fruits[0] ); // Apple
+// alert( fruits[1] ); // Orange
+// alert( fruits[2] ); // Pear
 
-const alphabet = ['B', 'C', 'D']
+// const alphabet = ['B', 'C', 'D']
 
-// push() => add element to the end || returns length
-alphabet.push('E'); //['B', 'C', 'D', 'E']
+// // push() => add element to the end || returns length
+// alphabet.push('E'); //['B', 'C', 'D', 'E']
 
-// unshift() add element to the start || returns length
-alphabet.unshift('A') //['A', 'B', 'C', 'D']
+// // unshift() add element to the start || returns length
+// alphabet.unshift('A') //['A', 'B', 'C', 'D']
 
-// pop() => remove the last element || returns removed element
-alphabet.pop() //['B', 'C'];
+// // pop() => remove the last element || returns removed element
+// alphabet.pop() //['B', 'C'];
 
-// shift() => remove the first element || return removed element
-alphabet.pop() //['C', 'D'];
+// // shift() => remove the first element || return removed element
+// alphabet.pop() //['C', 'D'];
 
-// // indexOf() => returns index of the chosen element
-// alphabet.indexOf('B') // 0
-// alphabet.indexOf('C') // 1
-// alphabet.indexOf('D') // 2
+// // // indexOf() => returns index of the chosen element
+// // alphabet.indexOf('B') // 0
+// // alphabet.indexOf('C') // 1
+// // alphabet.indexOf('D') // 2
 
-// //includes() => return Boolean value
-// alphabet.includes('B') // true
-// alphabet.includes('Z') // false
+// // //includes() => return Boolean value
+// // alphabet.includes('B') // true
+// // alphabet.includes('Z') // false
 
 
-fruits[2] = 'Peach'; // now ['Apple', 'Orange', 'Peach']
+// fruits[2] = 'Peach'; // now ['Apple', 'Orange', 'Peach']
 
-fruits[3] = 'Lemon'; // now ['Apple', 'Orange', 'Pear', 'Lemon']
+// fruits[3] = 'Lemon'; // now ['Apple', 'Orange', 'Pear', 'Lemon']
 
 // function denyAccess() {
 //   alert('Access denied');
@@ -1393,20 +1393,20 @@ const transliterate = function (text) {
     .replaceAll('ü', 'u');
 };
 
-const createSlug = function(title) {
-  return transliterate(title.toLowerCase())
-    .replace(/[^\w\s]/gi, '')
-    .split(' ')
-    .join('-');
-}
+// const createSlug = function(title) {
+//   return transliterate(title.toLowerCase())
+//     .replace(/[^\w\s]/gi, '')
+//     .split(' ')
+//     .join('-');
+// }
 
-console.log(createSlug(
-  'Salam olsun HaMiya! necəsən бббб 11 wwe ə абвгдеёжзийклмнопрстуфхцчшщъыьэюяАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ Aa, Bʙ, Cc, Çç, Dd, Ee, Ə ə, Ff, Gg, Ƣƣ, Hh, Ii, Ьь, Jj, Kk, Qq, Ll, Mm, Nn, Ꞑꞑ, Oo, Ɵɵ, Pp, Rr, Ss, Şş, Tt, Uu, Vv, Xx, Уy, Zz,'
-))
+// console.log(createSlug(
+//   'Salam olsun HaMiya! necəsən бббб 11 wwe ə абвгдеёжзийклмнопрстуфхцчшщъыьэюяАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ Aa, Bʙ, Cc, Çç, Dd, Ee, Ə ə, Ff, Gg, Ƣƣ, Hh, Ii, Ьь, Jj, Kk, Qq, Ll, Mm, Nn, Ꞑꞑ, Oo, Ɵɵ, Pp, Rr, Ss, Şş, Tt, Uu, Vv, Xx, Уy, Zz,'
+// ))
 
-console.log(createSlug('Təmirə hazırlaşırsansa nəzərə almalı olduğun 5 əsas məqam. meslen aaAAA'));
-console.log(createSlug('Five key pointers how to plan repair works'));
-console.log(createSlug('Пять ключевых советов, которые нужно учитывать, если планируете ремонт'));
+// console.log(createSlug('Təmirə hazırlaşırsansa nəzərə almalı olduğun 5 əsas məqam. meslen aaAAA'));
+// console.log(createSlug('Five key pointers how to plan repair works'));
+// console.log(createSlug('Пять ключевых советов, которые нужно учитывать, если планируете ремонт'));
 // working on konsept
 //again on konspet
 // konsept again
@@ -1416,3 +1416,69 @@ console.log(createSlug('Пять ключевых советов, которые
 //ms
 // ms-11
 // ms-12
+
+
+const text = 'hi from another world hi'
+
+// console.log(text.replace('hi', 'hello'));
+
+
+ function customReplace(text, from, to) {
+  const words = text.split(' ');
+  // const i = words.findIndex(word => word === from)
+  const i = words.indexOf(from)
+  words[i] = to
+
+  const finalText = words.join(' ')
+  console.log('fe', words, finalText);
+  return finalText;
+ }
+
+ customReplace(text, 'hi', 'hello')
+
+
+ function sumAll({ n, m, x }) {
+  let sum = 0
+  for (let i = n; i < m; i++) {
+    if(i % x === 0) {
+      sum +=i
+    }
+  }
+  console.log('sum: ', sum);
+ }
+
+ sumAll({ n: 2, m: 11, x: 3 })
+
+ // //1111
+// users.map((user) => {
+//   const fullName = `${user.first_name} ${user.last_name}`;
+//   console.log(fullName);
+// });
+
+// //2222
+// function calcUserAge(birthYear) {
+//   const userAge = 2022 - birthYear
+//   console.log(userAge);
+// }
+
+// for ( const user of users ) {
+//   calcUserAge(user.birth_year)
+// }
+
+// //3333
+// const maleUsers = users.filter(user => user.gender === 'male')
+// console.log(maleUsers);
+
+// //4444
+// const chosenUser = users.find(user => user.id === 1111)
+// console.log(chosenUser);
+
+// //5555
+// function isUserHobbie(user, hobbie) {
+//   if (user.hobbies.includes(hobbie)) {
+//     console.log(`Yes, user likes ${hobbie}`);
+//   } else {
+//     console.log(`No, user does not like ${hobbie}`);
+//   }
+// }
+// isUserHobbie(chosenUser, 'hiking')
