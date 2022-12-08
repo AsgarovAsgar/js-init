@@ -1482,3 +1482,78 @@ const text = 'hi from another world hi'
 //   }
 // }
 // isUserHobbie(chosenUser, 'hiking')
+
+// const twits = [
+//   {
+//     user: {
+//       name: 'Madza',
+//       nickName: 'madzaev',
+//       avatar: 'imglink',
+//       country: 'Russia',
+//     },
+//     text: 'Are you a coder',
+//     repliesCount: 115,
+//     retweetsCount: 77,
+//     likesCount: 198,
+//   },
+//   {
+//     user: {
+//       name: 'Nathan James',
+//       nickName: 'nsjames',
+//       avatar: 'imglink',
+//       country: 'England',
+//     },
+//     text: 'How do you create bugs',
+//     repliesCount: 95,
+//     retweetsCount: 101,
+//     likesCount: 67,
+//   },
+//   {
+//     user: {
+//       name: 'World of Engineering',
+//       nickName: 'engineering',
+//       avatar: 'imglink',
+//       country: 'England',
+//     },
+//     text: "Happy Teacher's Day",
+//     repliesCount: 29,
+//     retweetsCount: 55,
+//     likesCount: 1000,
+//   },
+// ];
+
+// const twitsUsers = twits.map(
+//   (twit) => `${twit.user.name} - ${twit.user.nickName}`
+// );
+// console.log('twitsUsers', twitsUsers);
+
+// const repliesCount50 = twits.filter((twit) => twit.repliesCount > 50);
+// console.log('repliesCount50', repliesCount50);
+
+// const twitsFromEng = twits
+//   .filter((twit) => twit.user.country === 'England')
+//   .map((twit) => twit.user.country);
+// console.log('twitsFromEng', twitsFromEng);
+
+// // acc => accumulutator
+// const sumOfLikes = twits.reduce((acc, twit) => acc + twit.likesCount, 0);
+// console.log('sumOfLikes', sumOfLikes);
+
+// let acc = 0;
+// for (const twit of twits) {
+//   acc = acc + twit.likesCount;
+// }
+// console.log('acc', acc);
+
+// const maxRetweetCount = twits.reduce((acc, twit) => {
+//   if (acc > twit.retweetsCount) return acc;
+//   else return twit.retweetsCount;
+// }, 0);
+
+// console.log('maxRetweetCount', maxRetweetCount);
+
+// const retweetsCounts = twits.map((twit) => twit.retweetsCount);
+// console.log(retweetsCounts);
+
+// const max = Math.max(...retweetsCounts);
+// console.log('max', max);
