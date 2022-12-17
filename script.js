@@ -1588,3 +1588,33 @@ const text = 'hi from another world hi'
 
 // console.log(header.innerText);
 // console.log(header.textContent);
+
+// const aqalar = document.querySelector('#aqalar')
+
+// const btn = document.querySelector('.btn')
+
+// console.log(aqalar);
+// console.log(btn);
+
+// btn.addEventListener('click', function() {
+//   const text = aqalar.textContent.toUpperCase()
+//   aqalar.textContent = text
+// })
+
+// let span = document.createElement('span')
+// span.id = 'ismail-id'
+// span.textContent = 'Ismail talks too much'
+// span.innerHTML = 'Link to: <a href="https://www.maestroschool.az/" target="_blank">ms</a>';
+
+// console.log(span);
+// const div = document.querySelector('div')
+// div.appendChild(span);
+
+// const btnAdd = document.querySelector('.btn-add')
+// btnAdd.addEventListener('click', function() {
+//   const userInput = prompt('Enter your name: ')
+//   const li = document.createElement('li')
+//   li.textContent = userInput
+//   const items = document.querySelector('.items')
+//   items.appendChild(li);
+// })
