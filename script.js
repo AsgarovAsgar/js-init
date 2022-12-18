@@ -1618,3 +1618,31 @@ const text = 'hi from another world hi'
 //   const items = document.querySelector('.items')
 //   items.appendChild(li);
 // })
+
+// get Elements By Tag Name
+// const names = document.getElementsByTagName('li');
+// console.log(names);
+
+// get Elements By Class Name;
+// const namesByClass = document.getElementsByClassName('item')
+// console.log(namesByClass);
+
+// const header = document.querySelector('h1')
+// const headerId = document.querySelector('#header')
+// const headerClass = document.querySelector('.header-2')
+
+// console.log(header);
+// console.log(headerId);
+// console.log(headerClass);
+
+// const items = document.querySelectorAll('.item')
+// console.log(items);
+
+// header.innerText = 'Yess, We did it'
+
+// console.log(header.innerText);
+// console.log(header.textContent);
+
+// const header = document.querySelector('#header')
+
+// console.log(header.innerText);
