@@ -1696,12 +1696,36 @@
 // })
 
 
-// // compose DOM nodes 
-// let fragment = document.createDocumentFragment(); 
-// let fr = document.querySelector("#fragment");
+// // // compose DOM nodes 
+// // let fragment = document.createDocumentFragment(); 
+// // let fr = document.querySelector("#fragment");
 
-// for (let i = 0; i < 10; i++) { 
-//   let p = document.createElement('p'); 
-//   p.textContent = `Paragraph ${i+1}`; 
-//   fr.appendChild(p); 
-// } 
+// // for (let i = 0; i < 10; i++) { 
+// //   let p = document.createElement('p'); 
+// //   p.textContent = `Paragraph ${i+1}`; 
+// //   fr.appendChild(p); 
+// // } 
+// const btnChangeColor = document.querySelector('.btn-change-color');
+// const container = document.querySelector('.container');
+
+// // btnChangeColor.addEventListener('click', function() {
+// //   // version 1
+// //   // container.style.color = 'white'
+// //   // container.style.backgroundColor = 'black'
+// //   // container.style.fontWeight = '700'
+// //   // container.style.fontSize = '24px';
+
+// //   // version 2
+// //   // container.style.cssText = 'color:white; background-color:green'
+
+// //   //version 3
+// //   container.style.cssText += 'font-size: 24px'
+// // })
+
+// const menu = document.querySelector('#menu');
+// // menu.className += ' ismail'
+// // console.log(menu.classList);
+
+// btnChangeColor.addEventListener('click', function () {
+//   menu.classList.add('hideElement');
+// });
