@@ -1729,3 +1729,28 @@
 // btnChangeColor.addEventListener('click', function () {
 //   menu.classList.add('hideElement');
 // });
+
+// 'use strict'
+// console.log('dom');
+
+// const headers = document.getElementsByTagName('h1')
+
+// console.log(document.getElementById('akshin'))
+
+// for (let i = 0; i < headers.length; i++) {
+//   console.log(headers[i].textContent);
+// };
+
+// console.log(document.getElementsByClassName('color'));
+
+// console.log(document.querySelector('.color'));
+
+// const colors = document.querySelectorAll('.color')
+
+// console.log(colors);
+
+// for (let i = 0; i < colors.length; i++) {
+//   const element = colors[i].textContent
+//   console.log(element);
+  
+// }
