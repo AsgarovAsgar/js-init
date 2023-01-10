@@ -1756,3 +1756,26 @@
 // }
 
 // holiday 
+
+// const btnBtn = document.querySelector('.btn-btn');
+
+// btnBtn.addEventListener('click', function (e) {
+//   alert('Btn clicked!');
+//   e.stopPropagation();
+// });
+
+// document.body.addEventListener('click', function () {
+//   alert('Body also clicked');
+// });
+
+// // const btnParent = document.querySelector("#parent-btn");
+
+// // btnParent.addEventListener("click", function () {
+// //   alert("parent div also clicked");
+// // });
+
+// const link = document.querySelector('#maestro');
+// link.addEventListener('click', function (e) {
+//   console.log('clicked');
+//   e.preventDefault();
+// });
