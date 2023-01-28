@@ -1779,3 +1779,288 @@
 //   console.log('clicked');
 //   e.preventDefault();
 // });
+
+// const createStore = () => {
+//   return new Vuex.Store({
+//     state: {
+//       blogPosts: [],
+//       postLoaded: null,
+//       blogHTML_az: "Write your blog title here...",
+//       blogHTML_en: "Write your blog title here...",
+//       blogHTML_ru: "Write your blog title here...",
+//       blogTitle_az: "",
+//       blogTitle_en: "",
+//       blogTitle_ru: "",
+//       blogPhotoName: "",
+//       blogPhotoFileURL: null,
+//       blogPhotoPreview: null,
+//       editPost: null,
+//       user: null,
+//       profileAdmin: null,
+//       profileEmail: null,
+//       profileFirstName: null,
+//       profileLastName: null,
+//       profileUsername: null,
+//       profileId: null,
+//       profileInitials: null,
+//       categories: [],
+//       advertisementPhotoFileURL: null,
+//       advertisementPhotoName: null,
+//       advertisements: [],
+//       allNews: [],
+//       currentUserMain: null,
+//     },
+//     getters: {
+//       blogPostsFeed(state) {
+//         return state.blogPosts.slice(0, 2);
+//       },
+//       blogPostsCards(state) {
+//         return state.blogPosts.slice(2, 6);
+//       },
+//       formattedNews(state) {
+//         // console.log('stateAds', state.advertisements);
+//         const ad = state.advertisements[0];
+//         // console.log("stateAllNews", state.allNews);
+//         const newArr = state.allNews.slice();
+//         newArr.splice(2, 0, ad);
+//         // console.log("newArr", newArr);
+//         return newArr;
+//       },
+//       firstTenNews(state) {
+//         // return state.allNews.sort((a, b) => b.date - a.date).slice(0, 10);
+//         return state.allNews
+//       },
+//       // getCategoryById: (state) => (id) => {
+//       //   // console.log('bax', state.categories, id);
+//       //   return state.categories.find((cat) => cat.categoryId === id);
+//       // },
+//     },
+//     mutations: {
+//       newBlogPost_az(state, payload) {
+//         state.blogHTML_az = payload;
+//       },
+//       newBlogPost_en(state, payload) {
+//         state.blogHTML_en = payload;
+//       },
+//       newBlogPost_ru(state, payload) {
+//         state.blogHTML_ru = payload;
+//       },
+//       updateBlogTitle_az(state, payload) {
+//         state.blogTitle_az = payload;
+//       },
+//       updateBlogTitle_en(state, payload) {
+//         state.blogTitle_en = payload;
+//       },
+//       updateBlogTitle_ru(state, payload) {
+//         state.blogTitle_ru = payload;
+//       },
+//       fileNameChange(state, payload) {
+//         state.blogPhotoName = payload;
+//       },
+//       createFileURL(state, payload) {
+//         state.blogPhotoFileURL = payload;
+//       },
+//       createAdvertisementFileURL(state, payload) {
+//         state.advertisementPhotoFileURL = payload;
+//       },
+//       advertisementNameChange(state, payload) {
+//         state.advertisementPhotoName = payload;
+//       },
+//       openPhotoPreview(state) {
+//         state.blogPhotoPreview = !state.blogPhotoPreview;
+//       },
+//       toggleEditPost(state, payload) {
+//         state.editPost = payload;
+//       },
+//       setBlogState(state, payload) {
+//         state.blogTitle = payload.blogTitle;
+//         state.blogHTML = payload.blogHTML;
+//         state.blogPhotoFileURL = payload.blogCoverPhoto;
+//         state.blogPhotoName = payload.blogCoverPhotoName;
+//       },
+//       filterBlogPost(state, payload) {
+//         state.blogPosts = state.blogPosts.filter(
+//           (post) => post.blogID !== payload
+//         );
+//       },
+//       updateUser(state, payload) {
+//         state.user = payload;
+//       },
+//       setProfileAdmin(state, payload) {
+//         state.profileAdmin = payload;
+//         console.log(state.profileAdmin);
+//       },
+//       setProfileInfo(state, doc) {
+//         state.profileId = doc.id;
+//         state.profileEmail = doc.data().email;
+//         state.profileFirstName = doc.data().firstName;
+//         state.profileLastName = doc.data().lastName;
+//         state.profileUsername = doc.data().username;
+//         console.log(state.profileId);
+//       },
+//       setProfileInitials(state) {
+//         state.profileInitials =
+//           state.profileFirstName.match(/(\b\S)?/g).join("") +
+//           state.profileLastName.match(/(\b\S)?/g).join("");
+//       },
+//       changeFirstName(state, payload) {
+//         state.profileFirstName = payload;
+//       },
+//       changeLastName(state, payload) {
+//         state.profileLastName = payload;
+//       },
+//       changeUsername(state, payload) {
+//         state.profileUsername = payload;
+//       },
+//       setCategories(state, payload) {
+//         state.categories = payload;
+//       },
+//       setAdvertisements(state, payload) {
+//         state.advertisements = payload;
+//       },
+//       setAllNews(state, payload) {
+//         state.allNews = payload;
+//       },
+//       setCurrentUserMain(state, user) {
+//         state.currentUserMain = user;
+//       },
+//       clearAuthKey(state) {
+//         state.currentUserMain = null;
+//         Cookie.remove("currentUserMain");
+
+//         if (process.client) {
+//           localStorage.removeItem("currentUserMain");
+//         }
+//       },
+//     },
+//     actions: {
+//       async nuxtServerInit(vuexContext, context) {
+//         const categories = [];
+//         await db
+//           .collection("categories")
+//           .get()
+//           .then((querySnapshot) => {
+//             querySnapshot.forEach((doc) => {
+//               categories.push({ ...doc.data(), categoryId: doc.id });
+//             });
+//           });
+//         vuexContext.commit("setCategories", categories);
+
+//         let advertisements = [];
+//         await db
+//           .collection("advertisements")
+//           .get()
+//           .then((querySnapshot) => {
+//             advertisements = querySnapshot.docs.map((doc) => doc.data());
+//           });
+//         // console.log("advertisements", advertisements);
+//         vuexContext.commit("setAdvertisements", advertisements);
+
+//         const allNews = [];
+//         await db
+//           .collection("news")
+//           .get()
+//           .then((querySnapshot) => {
+//             querySnapshot.forEach((doc) => {
+//               allNews.push(doc.data());
+//             });
+//           });
+//         vuexContext.commit("setAllNews", allNews);
+//       },
+//       // async getCurrentUser({ commit }, user) {
+//       //   const dataBase = await db
+//       //     .collection("users")
+//       //     .doc(firebase.auth().currentUser.uid);
+//       //   const dbResults = await dataBase.get();
+//       //   commit("setProfileInfo", dbResults);
+//       //   commit("setProfileInitials");
+//       //   const token = await user.getIdTokenResult();
+//       //   const admin = await token.claims.admin;
+//       //   commit("setProfileAdmin", admin);
+//       // },
+//       async getPost({ state }) {
+//         const dataBase = await db
+//           .collection("blogPosts")
+//           .orderBy("date", "desc");
+//         const dbResults = await dataBase.get();
+//         dbResults.forEach((doc) => {
+//           if (!state.blogPosts.some((post) => post.blogID === doc.id)) {
+//             const data = {
+//               blogID: doc.data().blogID,
+//               blogHTML: doc.data().blogHTML,
+//               blogCoverPhoto: doc.data().blogCoverPhoto,
+//               blogTitle: doc.data().blogTitle,
+//               blogDate: doc.data().date,
+//               blogCoverPhotoName: doc.data().blogCoverPhotoName,
+//             };
+//             state.blogPosts.push(data);
+//           }
+//         });
+//         state.postLoaded = true;
+//       },
+//       async updatePost({ commit, dispatch }, payload) {
+//         commit("filterBlogPost", payload);
+//         await dispatch("getPost");
+//       },
+//       async deletePost({ commit }, payload) {
+//         const getPost = await db.collection("blogPosts").doc(payload);
+//         await getPost.delete();
+//         commit("filterBlogPost", payload);
+//       },
+//       async updateUserSettings({ commit, state }) {
+//         const dataBase = await db.collection("users").doc(state.profileId);
+//         await dataBase.update({
+//           firstName: state.profileFirstName,
+//           lastName: state.profileLastName,
+//           username: state.profileUsername,
+//         });
+//         commit("setProfileInitials");
+//       },
+
+//       initUser(vuexContext, req) {
+//         let user;
+//         if (req) {
+//           // server
+//           if (!req.headers.cookie) {
+//             return;
+//           }
+//           // const test = CookieParser.parse(req.headers.cookie)
+
+//           user = req.headers.cookie
+//             .split(";")
+//             .find((c) => c.trim().startsWith("currentUserMain="));
+//           if (user) {
+//             const all = CookieParser.parse(user);
+//             // user = user.split('=')[1]
+//             user = all.currentUserMain;
+//           }
+//         } else {
+//           // client
+//           if (typeof window !== "undefined") {
+//             user = localStorage.getItem("currentUserMain");
+//           }
+//           if (!user) {
+//             return;
+//           }
+//         }
+//         vuexContext.commit("setCurrentUserMain", user);
+//       },
+
+//       loginUser(vuexContext, user) {
+//         const expiryDate = new Date();
+//         expiryDate.setDate(expiryDate.getDate() + 1);
+//         localStorage.setItem("currentUserMain", JSON.stringify(user), {
+//           expires: expiryDate,
+//         });
+//         Cookie.set("currentUserMain", JSON.stringify(user), {
+//           expires: expiryDate,
+//         });
+//         vuexContext.commit("setCurrentUserMain", JSON.stringify(user));
+//       },
+//       logout(vuexContext) {
+//         vuexContext.commit("clearAuthKey");
+//       },
+//     },
+//     modules: {},
+//   });
+// };
