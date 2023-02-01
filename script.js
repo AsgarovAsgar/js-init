@@ -2063,4 +2063,33 @@
 //     },
 //     modules: {},
 //   });
+
+
+  //   return {
+  //     newsList: [],
+  //     chosenCategory: {}
+  //   }
+  // },
+  // async fetch() {
+  //   const allNews = []
+  //   await db.collection("news")
+  //     .where("category", "==", this.$route.params.category)
+  //     .get()
+  //     .then((querySnapshot) => {
+  //       querySnapshot.forEach((doc) => {
+  //         allNews.push(doc.data());
+  //       });
+  //     });
+  //   this.newsList = allNews
+
+  //   this.chosenCategory = await db.collection('categories')
+  //     .doc(this.$route.params.category)
+  //     .get()
+  //     .then(snapshot => snapshot.data())
+  // },
+  // computed: {
+  //   sortedNews() {
+  //     return this.newsList.sort((a,b) => b.date - a.date)
+  //   },
+
 // };
