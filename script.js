@@ -2137,3 +2137,22 @@
 // export const makeFetchItemsAction = ({ emoji, resource }) => {
 //   return ({ dispatch }, payload) => dispatch("fetchItems", { ...payload, resource, emoji }, { root: true })
 // }
+
+// const createPerson = function(userName, userAge) {
+//   console.log('function', this);
+//   return { 
+//     userName, 
+//     userAge
+//   }
+// }
+// createPerson('Asgar', 24)
+// // console.log(asgar);
+
+
+// const Person = function(userName, userAge) {
+//   console.log('const', this)
+//   // this.userName = userName,
+//   // this.userAge = userAge
+// }
+// new Person('Ruhin', 21)
+// // console.log(ruhin);
