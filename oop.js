@@ -100,6 +100,7 @@ Car.prototype.accelerate = function() {
 tesla.accelerate()
 
 // POLYMORPHISM => OVERWRITING BY CHILD
+//Inheritence
 
 
 // Object prototype with ES6 Classes
