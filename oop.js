@@ -73,6 +73,35 @@ bmw.accelerate()
 bmw.accelerate()
 mercedes.brake()
 
+// CHALLENGE 3
+
+const EV  = function(make, speed, charge) {
+  Car.call(this, make, speed)
+  this.charge = charge
+}
+
+EV.prototype = Object.create(Car.prototype)
+Car.prototype.chargeBattery = function(chargeTo) {
+  this.charge = chargeTo
+}
+
+const tesla = new EV('Tesla', 120, 23)
+console.log(tesla);
+
+tesla.chargeBattery(90)
+console.log(tesla);
+
+Car.prototype.accelerate = function() {
+  this.speed += 20
+  this.charge--
+  console.log(`${this.make} is going at ${this.speed} km/h, with a charge of ${this.charge}`);
+}
+
+tesla.accelerate()
+
+// POLYMORPHISM => OVERWRITING BY CHILD
+//Inheritence
+
 
 // Object prototype with ES6 Classes
 
@@ -145,4 +174,36 @@ console.log(asgarCl);
 console.log(asgarCl.age);
 console.log(asgarCl.fullName);
 
-//test
+//
+const Personn = function(firstName, birthYear) {
+  this.firstName = firstName;
+  this.birthYear = birthYear
+}
+Personn.prototype.calcAge = function() {
+  console.log(2022 - this.birthYear);
+}
+
+const Student = function(firstName, birthYear, course) {
+  // this.firstName = firstName;
+  // this.birthYear = birthYear;
+  Person.call(this, firstName, birthYear) //calling parent constructor
+  this.course = course
+}
+
+// linking prototypes
+Student.prototype = Object.create(Person.prototype)
+const donald = new Personn('Donald', 1992)
+console.log(donald);
+donald.calcAge()
+
+Student.prototype.introduce = function() {
+  console.log(`My name is ${this.firstName}. I study ${this.course}`);
+}
+
+const mike = new Student('Mike', 2005, 'Enginnering')
+mike.introduce()
+mike.calcAge()
+
+Student.prototype.constructor = Student
+console.dir(Student.prototype.constructor)
+
