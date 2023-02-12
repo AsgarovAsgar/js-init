@@ -109,45 +109,45 @@ tesla.accelerate()
 // const PersonCl = class {}
 
 // class declaration
-class PersonCl {
-  constructor(fullName, birthYear) {
-    this.fullName = fullName;
-    this.birthYear = birthYear
-  }
+// class PersonCl {
+//   constructor(fullName, birthYear) {
+//     this.fullName = fullName;
+//     this.birthYear = birthYear
+//   }
   
-  // methods will be added to protoype property
-  // Instance methods
-  calcAge() {
-    return 2023 - this.birthYear
-  }
-  greet() {
-    console.log(`Hey, ${this.fullName}`);
-  }
+//   // methods will be added to protoype property
+//   // Instance methods
+//   calcAge() {
+//     return 2023 - this.birthYear
+//   }
+//   greet() {
+//     console.log(`Hey, ${this.fullName}`);
+//   }
 
-  get age() {
-    return 2023 - this.birthYear
-  }
+//   get age() {
+//     return 2023 - this.birthYear
+//   }
 
-  // Set a property that already exists
-  set fullName(name) {
-    if(name.includes(' ')) this._fullName = name
-    else alert(`${name} is not a full name`)
-  }
-  get fullName() {
-    return this._fullName
-  }
-  // static method
-  static hey() {
-    console.log('Hey there 🤠');
-  }
-}
+//   // Set a property that already exists
+//   set fullName(name) {
+//     if(name.includes(' ')) this._fullName = name
+//     else alert(`${name} is not a full name`)
+//   }
+//   get fullName() {
+//     return this._fullName
+//   }
+//   // static method
+//   static hey() {
+//     console.log('Hey there 🤠');
+//   }
+// }
 
-const asgarCl = new PersonCl('Asgar Asgarov', 1999)
-console.log('ES6 classes: ', asgarCl.calcAge());
+// const asgarCl = new PersonCl('Asgar Asgarov', 1999)
+// console.log('ES6 classes: ', asgarCl.calcAge());
 // PersonCl.prototype.greet = function() {
 //   console.log(`Hey, ${this.firstName}`);
 // }
-asgarCl.greet()
+// asgarCl.greet()
 
 // CLASSES IN ES6:
 // Classes are NOT hoisted;
@@ -156,23 +156,23 @@ asgarCl.greet()
 
 //GETTERS AND SETTERS
 
-const account = {
-  owner: "Asgar",
-  movements: [20, 100, -200, 300],
-  get latest() {
-    return this.movements.slice(-1).pop()
-  },
-  set latest(mov) {
-    this.movements.push(mov)
-  }
-}
+// const account = {
+//   owner: "Asgar",
+//   movements: [20, 100, -200, 300],
+//   get latest() {
+//     return this.movements.slice(-1).pop()
+//   },
+//   set latest(mov) {
+//     this.movements.push(mov)
+//   }
+// }
 
-console.log(account.latest);
-account.latest = 55
-console.log(account.movements);
-console.log(asgarCl);
-console.log(asgarCl.age);
-console.log(asgarCl.fullName);
+// console.log(account.latest);
+// account.latest = 55
+// console.log(account.movements);
+// console.log(asgarCl);
+// console.log(asgarCl.age);
+// console.log(asgarCl.fullName);
 
 //
 const Personn = function(firstName, birthYear) {
@@ -207,3 +207,129 @@ mike.calcAge()
 Student.prototype.constructor = Student
 console.dir(Student.prototype.constructor)
 
+
+
+class PersonCl {
+  constructor(fullName, birthYear) {
+    this.fullName = fullName;
+    this.birthYear = birthYear
+  }
+  
+  // methods will be added to prototype property
+  // Instance methods
+  calcAge() {
+    return 2023 - this.birthYear
+  }
+  greet() { 
+    console.log(`Hey, ${this.fullName}`);
+  }
+
+  get age() {
+    return 2023 - this.birthYear
+  }
+
+  // Set a property that already exists
+  set fullName(name) {
+    if(name.includes(' ')) this._fullName = name
+    else alert(`${name} is not a full name`)
+  }
+  get fullName() {
+    return this._fullName
+  }
+  // static method
+  static hey() {
+    console.log('Hey there 🤠');
+  }
+}
+
+class StudentCl extends PersonCl {
+  constructor(fullName, birthYear, course) {
+    // super function always needs to happen first!
+    super(fullName, birthYear)
+    this.course = course
+  }
+
+  introduce() {
+    console.log(`My name is ${this.fullName.split(' ').slice(0,1)}. I study ${this.course}`);
+  }
+}
+
+const ruhin = new StudentCl('Ruhin sksk', 2001, 'Cybersksk')
+console.log(ruhin);
+ruhin.introduce() 
+
+//MORE WORK ON ES6 CLASSES -> They are used much in modern JS!
+
+// 1) public fields
+// 2) private fields
+// 3) public methods
+// 4) private methods
+// (There is also static version)
+class Account {
+  // 1) Public fields (instances)
+  locale = navigator.language
+
+  // 2) private fields (instances )
+  #movements = [];
+  #pin
+
+  constructor(owner, currency, pin) {
+    this.owner = owner;
+    this.currency = currency;
+    // Property protected
+    this.#pin = pin;
+    // this._movements = movements;
+    // this.locale = navigator.language 
+  }
+
+  // public interface
+  // public methods as well
+  getMovements() {
+    return this.#movements
+  }
+  deposit(val) {
+    this.#movements.push(val)
+    return this
+  }
+  withdraw(val) {
+    this.deposit(-val)
+    return this
+  }
+  // _approveLoan(val) {
+  //   return true
+  // }
+  requestLoan(val) {
+    if(this._approveLoan(val)) {
+      this.deposit(val)
+      console.log(`Loan approved`);
+      return this
+    }
+  }
+
+  // 4) private methods
+  _approveLoan(val) {
+    return true
+  }
+
+  //static
+  static helper() {
+    console.log('I am a static helper function');
+  }
+   
+}
+const acc1 = new Account('Asgar', 'EUR', 1111)
+
+// acc1._movements.push(250)
+// acc1._movements.push(-140)
+acc1.deposit(250)
+acc1.withdraw(140)
+acc1.requestLoan(1000)
+console.log(acc1);
+console.log(acc1.getMovements());
+// console.log(acc1.#movements); //SyntaxError: Private field '#movements' must be declared in an enclosing class
+// acc1.#approveLoan(500) //SyntaxError: Private field '#approveLoan' must be declared in an enclosing class
+// acc1.helper() //TypeError: acc1.helper is not a function
+Account.helper()
+
+acc1.deposit(100).deposit(200).withdraw(10).requestLoan(5000).withdraw(20)
+ 
