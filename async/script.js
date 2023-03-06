@@ -129,6 +129,8 @@ const getCountryData = function(country) {
   })
   .then(response => response.json())
   .then(data => renderCountry(data, 'neighbour'))
-}
 
+  // THESE ARE 'FLAT CHAIN' OF PROMISES
+}
+//test
 getCountryData('portugal')
