@@ -3,6 +3,11 @@
 const btn = document.querySelector('.btn-country');
 const countriesContainer = document.querySelector('.countries');
 
+const renderError = function(msg) {
+  countriesContainer.insertAdjacentText('beforeend', msg)
+  countriesContainer.style.opacity = 1;
+}
+
 ///////////////////////////////////////
 // Our First AJAX Call: XMLHttpRequest
 
@@ -119,7 +124,13 @@ const renderCountry = function(data, className = '') {
 const getCountryData = function(country) {
   // fetch function returns PROMISE and then we can use it using .then
   fetch(`https://restcountries.com/v2/name/${country}`)
-  .then((response) => response.json())
+  .then((response) => {
+    console.log(response);
+    if(!response.ok) {
+      throw new Error(`Country not found ${response.status}`)
+    }
+    return response.json()
+  })
   .then((data) => {
     renderCountry(data[0])
     const neighbour = data[0].borders?.[0]
@@ -129,8 +140,14 @@ const getCountryData = function(country) {
   })
   .then(response => response.json())
   .then(data => renderCountry(data, 'neighbour'))
+  .catch(err => {
+    console.error(`${err} ❗️❗️`);
+    renderError(`Something went wrong. ${err.message}. Try again!`)
+  })
 
   // THESE ARE 'FLAT CHAIN' OF PROMISES
 }
-//test
-getCountryData('portugal')
+
+btn.addEventListener('click', function() {
+  getCountryData("portugalsss")
+})
