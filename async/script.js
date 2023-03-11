@@ -149,5 +149,37 @@ const getCountryData = function(country) {
 }
 
 btn.addEventListener('click', function() {
-  getCountryData("portugalsss")
+  getCountryData("portugal")
 })
+
+const lotteryPromise = new Promise((resolve, reject) => {
+  console.log('draw is happening');
+  setTimeout(() => {
+    if(Math.random() >= 0.5) {
+      resolve('You win')
+    } else {
+      reject(new Error('You lost'))
+    }
+  }, 2000)
+})
+
+lotteryPromise
+.then(res => console.log(res))
+.catch(err => console.log(err))
+
+const wait = (sec) => {
+  return new Promise((resolve) => {
+    setTimeout(resolve, sec * 1000);
+  })
+}
+wait(3)
+.then(() => {
+  console.log('waited for 3 sec');
+  return wait(2)
+})
+.then(() => {
+  console.log('waited for 2 sec');
+})
+
+Promise.resolve('aaa').then((a) => { console.log(a) })
+Promise.reject(new Error('bbb')).catch((a) => { console.log(a) })
