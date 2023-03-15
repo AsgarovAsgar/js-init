@@ -194,4 +194,25 @@ const getPosition = () => {
   })
 }
 
-getPosition().then(pos => console.log(pos))
+// getPosition().then(pos => console.log(pos))
+
+const whereAmI = async () => {
+  // geolocation
+  const pos = await getPosition()
+  const { latitude: lat, longtitude: lng } = pos.coords
+
+  //reverse geocoding
+  const resGeo = await fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`)
+  const dataGeo = await resGeo.json()
+
+  console.log(dataGeo.standard.countryname);
+
+  //country data
+  const res = await fetch(`https://restcountries.com/v2/name/${dataGeo.standard.countryname}`)
+  const data = await res.json()
+  console.log(data);
+  renderCountry(data[0])
+}
+
+console.log('zero');
+console.log('first');
